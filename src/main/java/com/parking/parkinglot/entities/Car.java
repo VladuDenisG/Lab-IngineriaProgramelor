@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "car")
+@Table(name = "cars")
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -15,7 +15,7 @@ public class Car {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "owner_id", nullable = false)
-    private Car owner;
+    private User owner;
 
     public Long getId() {
         return id;
@@ -36,25 +36,16 @@ public class Car {
         this.licensePlate = licensePlate;
     }
 
-    @OneToMany(mappedBy = "owner", orphanRemoval = true)
-    private List<Car> cars = new ArrayList<>();
 
     @Column(name = "parking_spot")
     private String parkingSpot;
 
-    public List<Car> getCars() {
-        return cars;
-    }
 
-    public void setCars(List<Car> cars) {
-        this.cars = cars;
-    }
-
-    public Car getOwner() {
+    public User getOwner() {
         return owner;
     }
 
-    public void setOwner(Car owner) {
+    public void setOwner(User owner) {
         this.owner = owner;
     }
 
