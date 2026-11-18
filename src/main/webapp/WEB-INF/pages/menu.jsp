@@ -20,6 +20,13 @@ eq '/about.jsp' ? ' active' : ''}" aria-current="page" href="${pageContext.reque
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link ${activePage eq 'Users' ? 'active' : ''}"
+                               href="${pageContext.request.contextPath}/Users">
+                                Users
+                            </a>
+                        </li>
+
 
 
 
